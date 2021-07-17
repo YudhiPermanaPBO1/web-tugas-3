@@ -19,9 +19,9 @@
                                     ($mahasiswa) ? '' : $mahasiswa->user_id }}">
                                 </div>
                                 <div class="col">
-                                    <label for="">Nama Lengkap</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Tambahkan Nama" value="{{ is_null
-                                    ($mahasiswa) ? '' : $mahasiswa->name }}">
+                                    <label for="">NPM</label>
+                                    <input type="number" name="npm" class="form-control" placeholder="Tambahkan Npm" value="{{ is_null
+                                    ($mahasiswa) ? '' : $mahasiswa->npm }}">
                                 </div>
                                 <div class="col">
                                     <label for="">Tanggal Lahir</label>
@@ -48,11 +48,7 @@
                                     <input type="text" name="gender" class="form-control" placeholder="Tambahkan Jenis Kelamin" value="{{ is_null
                                     ($mahasiswa) ? '' : $mahasiswa->gender }}">
                                 </div>
-                                <div class="col">
-                                    <label for="">foto</label>
-                                    <input type="file" name="foto" class="form-control" placeholder="Tambahkan Foto" value="{{ is_null
-                                    ($mahasiswa) ? '' : $mahasiswa->foto }}">
-                                </div>
+                                
                             </div>
                         </div>
 

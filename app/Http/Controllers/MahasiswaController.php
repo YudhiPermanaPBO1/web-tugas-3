@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mahasiswa;
+use App\user;
 use Illuminate\Http\Request;
 Use Alert;
 
@@ -11,14 +12,15 @@ class MahasiswaController extends Controller
     
 
     public function index()
-    {
-        $mahasiswa = Mahasiswa::all(); // select * from nama_tabel
+    { 
+        $mahasiswa = Mahasiswa::with(['user'])->get(); // select * from nama_tabel
         return view('mahasiswa.index', compact('mahasiswa'));
     }
 
     public function create()
     {
-        return view('mahasiswa.create');
+        $user = User::all();
+        return view('mahasiswa.create', compact('user'));
     }
 
     public function simpan(request $request)
@@ -31,7 +33,7 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mahasiswa = Mahasiswa::find($id); // select * from nama_tabel where id = $id;
-        return view('mahasiswa.edit', compact('mahasiswa'));
+        return view('mahasiswa.edit', compact('mahasiswa', 'user'));
     }
 
     public function update(request $request, $id)
@@ -51,3 +53,4 @@ class MahasiswaController extends Controller
     }
 
 }
+ 
