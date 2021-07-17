@@ -13,42 +13,61 @@
                         
                         <div class="form-group">
                             <div class="form-row">
-                            <div class="col">
-                                    <label for="">No</label>
-                                    <input type="text" name="user_id" class="form-control" placeholder="Tambahkan user id" value="{{ is_null
-                                    ($mahasiswa) ? '' : $mahasiswa->user_id }}">
-                                </div>
                                 <div class="col">
+                                    <label for="">Nama Mahasiswa</label>
+                                   <select name="user_id" id="user_id" class="form-control">
+                                        <option value="" disabled selected>--Pilih User--</option>
+                                        @foreach ($user as $u)
+                                             <option value="{{ $u->id }}" {{ $mahasiswa->user_id == $u->id ? 'selected' : '' }}  >{{ $u->name }}</option>
+                                        @endforeach
+                                       
+                                    </select>
+                                </div>
+                                <div class="col"> 
                                     <label for="">NPM</label>
-                                    <input type="number" name="npm" class="form-control" placeholder="Tambahkan Npm" value="{{ is_null
+                                    <input type="number" name="npm" class="form-control" placeholder="Masukkan NPM" maxlength="8" value="{{ is_null
                                     ($mahasiswa) ? '' : $mahasiswa->npm }}">
                                 </div>
                                 <div class="col">
                                     <label for="">Tanggal Lahir</label>
-                                    <input type="date" name="tgl_lahir" class="form-control" placeholder="Tambahkan Tanggal Lahir" value="{{ is_null
+                                    <input type="date" name="tgl_lahir" class="form-control" placeholder="Tambahkan Tanggal" value="{{ is_null
                                     ($mahasiswa) ? '' : $mahasiswa->tgl_lahir }}">
                                 </div>
-                                <div class="col">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                            <div class="col">
                                     <label for="">Tempat Lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tambahkan Tempat Lahir" value=" {{ is_null
+                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="{{ is_null
                                     ($mahasiswa) ? '' : $mahasiswa->tempat_lahir }}">
                                 </div>
                                 <div class="col">
                                     <label for="">Telepon</label>
-                                    <input type="number" name="telepon" class="form-control" placeholder="Tambahkan Telepon" value="{{ is_null
+                                    <input type="number" name="telepon" class="form-control" placeholder="Tambahkan Nomor Telepon" value="{{ is_null
                                     ($mahasiswa) ? '' : $mahasiswa->telepon }}">
                                 </div>
                                 <div class="col">
-                                    <label for="">Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" placeholder="Tambahkan Alamat" value="{{ is_null
-                                    ($mahasiswa) ? '' : $mahasiswa->alamat }}">
-                                </div>
-                                <div class="col">
                                     <label for="">Jenis Kelamin</label>
-                                    <input type="text" name="gender" class="form-control" placeholder="Tambahkan Jenis Kelamin" value="{{ is_null
-                                    ($mahasiswa) ? '' : $mahasiswa->gender }}">
+                                    <select name="gender" id="gender" class="form-control">
+                                        <option value="" disabled selected>--Pilih Jenis Kelamin--</option>
+                                        <option value="L" {{ $mahasiswa->gender == 'L' ? 'selected' : '' }} >Laki-Laki</option>
+                                        <option value="P" {{ $mahasiswa->gender == 'P' ? 'selected' : '' }} >Perempuan</option>
+                                    </select>
                                 </div>
                                 
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="">Alamat</label>
+                                    <textarea name="alamat" id="alamat" cols="2" rows="3" class="form-control" style="resize: none">
+                                        {{ is_null ($mahasiswa) ? '' : $mahasiswa->alamat }}
+                                    </textarea>
+                                </div>
                             </div>
                         </div>
 

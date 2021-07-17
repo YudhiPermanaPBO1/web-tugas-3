@@ -32,6 +32,7 @@ class MahasiswaController extends Controller
 
     public function edit($id)
     {
+        $user = User::all();
         $mahasiswa = Mahasiswa::find($id); // select * from nama_tabel where id = $id;
         return view('mahasiswa.edit', compact('mahasiswa', 'user'));
     }
